@@ -189,6 +189,7 @@
             transform: translateY(-2px);
         }
 
+
         .hero {
             position: relative;
             overflow: hidden;
@@ -624,7 +625,7 @@
         .disclaimer {
             margin-top: 18px;
             font-size: 12px;
-            color: #98a2b3;
+            color: #6b7280;
         }
 
         @media (max-width: 920px) {
@@ -779,14 +780,14 @@
     <div class="top-bar">
         <div class="container">
             <span>Mutual Funds • Life Insurance • Health Insurance</span>
-            <a href="tel:+910000000000" aria-label="Call or WhatsApp Mahesh Y Desai" style="color:inherit">Call / WhatsApp: +91 00000 00000</a>
+            <a href="tel:+910000000000" aria-label="Call or WhatsApp Mahesh Y Desai: +91 00000 00000" style="color:inherit">Call / WhatsApp: +91 00000 00000</a>
         </div>
     </div>
 
     <header>
         <div class="container nav">
             <a class="brand" href="#home" aria-label="TezNivesh home">
-                <img src="teznivesh.webp" alt="TezNivesh – Growth · Wealth · Security" class="brand-logo" height="48" width="auto" />
+                <img src="teznivesh.webp" alt="TezNivesh – Growth · Wealth · Security" class="brand-logo" height="48" width="212" />
             </a>
 
             <button class="mobile-menu" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
@@ -986,7 +987,7 @@
                         </div>
                         <div class="contact-item">
                             <strong>Phone / WhatsApp</strong>
-                            <span><a href="tel:+910000000000" style="color:inherit">+91 00000 00000</a></span>
+                            <span><a href="tel:+910000000000" style="color:inherit;text-decoration:underline">+91 00000 00000</a></span>
                         </div>
                         <div class="contact-item">
                             <strong>Email</strong>
@@ -1008,7 +1009,7 @@
                             <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
                             <input type="tel" name="phone" placeholder="Mobile Number" required autocomplete="tel" />
                             <input type="email" name="email" placeholder="Email Address" autocomplete="email" />
-                            <select name="service" required>
+                            <select name="service" required aria-label="Select a service">
                                 <option value="">Select Service</option>
                                 <option>Mutual Funds</option>
                                 <option>Life Insurance</option>
