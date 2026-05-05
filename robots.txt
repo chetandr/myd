@@ -10,4 +10,4 @@ Disallow: /tmp/
 Disallow: /cache/
 
 # Sitemap location
-Sitemap: https://trustivawealth.com/sitemap.xml
+Sitemap: https://teznivesh.in/sitemap.xml
