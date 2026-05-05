@@ -42,7 +42,8 @@
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#071f3d" />
 
-    <!-- Preload hero image for faster LCP -->
+    <!-- Preload logo and hero image for faster LCP -->
+    <link rel="preload" as="image" href="teznivesh.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="mahesh.webp" fetchpriority="high" />
 
     <style>
@@ -126,30 +127,12 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            color: var(--navy);
-            letter-spacing: -0.03em;
         }
 
-        .brand-mark {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--navy), var(--gold));
-            color: white;
-            display: grid;
-            place-items: center;
-            font-weight: 900;
-            box-shadow: 0 10px 22px rgba(7, 31, 61, 0.2);
-        }
-
-        .brand small {
+        .brand-logo {
+            height: 48px;
+            width: auto;
             display: block;
-            font-weight: 600;
-            color: var(--muted);
-            letter-spacing: 0;
-            margin-top: -3px;
         }
 
         .nav-links {
@@ -701,12 +684,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .brand span {
-                font-size: 15px;
-            }
-
-            .brand small {
-                font-size: 11px;
+            .brand-logo {
+                height: 38px;
             }
 
             .top-bar .container {
@@ -802,12 +781,8 @@
 
     <header>
         <div class="container nav">
-            <a class="brand" href="#home" aria-label="TezNivesh Wealth Solutions home">
-                <span class="brand-mark">TN</span>
-                <span>
-                    TezNivesh Wealth Solutions
-                    <small>By Mahesh Y Desai</small>
-                </span>
+            <a class="brand" href="#home" aria-label="TezNivesh home">
+                <img src="teznivesh.webp" alt="TezNivesh – Growth · Wealth · Security" class="brand-logo" height="48" width="auto" />
             </a>
 
             <button class="mobile-menu" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
