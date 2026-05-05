@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block common junk paths that waste crawl budget
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /*.php$
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /cache/
+
+# Sitemap location
+Sitemap: https://trustivawealth.com/sitemap.xml

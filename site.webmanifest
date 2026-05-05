@@ -1,0 +1,11 @@
+{
+  "name": "Trustiva Wealth Solutions",
+  "short_name": "Trustiva",
+  "description": "Financial Advisor in Belagavi — Mutual Funds, Life Insurance & Health Insurance by Mahesh Y Desai",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fbff",
+  "theme_color": "#071f3d",
+  "lang": "en-IN",
+  "icons": []
+}
