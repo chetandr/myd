@@ -700,6 +700,68 @@
                 text-align: center;
             }
         }
+        /* ── Animations ────────────────────────────────── */
+
+        /* Hero entrance */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero .eyebrow  { animation: fadeUp 0.6s ease both; animation-delay: 0.05s; }
+        .hero h1        { animation: fadeUp 0.6s ease both; animation-delay: 0.2s; }
+        .hero-grid > div > p { animation: fadeUp 0.6s ease both; animation-delay: 0.35s; }
+        .hero-actions   { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
+        .trust-row      { animation: fadeUp 0.6s ease both; animation-delay: 0.65s; }
+        .portrait-card  { animation: fadeUp 0.7s ease both; animation-delay: 0.25s; }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+        .about-photo.reveal  { transform: translateX(-36px); }
+        .about-content.reveal { transform: translateX(36px); }
+
+        /* Stagger for grid children */
+        .services-grid .reveal:nth-child(2),
+        .process-grid  .reveal:nth-child(2) { transition-delay: 0.12s; }
+        .services-grid .reveal:nth-child(3),
+        .process-grid  .reveal:nth-child(3) { transition-delay: 0.24s; }
+        .process-grid  .reveal:nth-child(4) { transition-delay: 0.36s; }
+        .feature-list  .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .feature-list  .reveal:nth-child(3) { transition-delay: 0.2s; }
+        .feature-list  .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+        /* Navbar shadow on scroll */
+        header { transition: box-shadow 0.3s ease; }
+        header.scrolled { box-shadow: 0 4px 24px rgba(7, 31, 61, 0.18); }
+
+        /* Button shimmer */
+        .btn-primary { position: relative; overflow: hidden; }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            left: -110%;
+            width: 60%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+            transform: skewX(-15deg);
+            transition: left 0.55s ease;
+        }
+        .btn-primary:hover::after { left: 160%; }
+
+        /* Step card hover lift */
+        .step { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(7, 31, 61, 0.13);
+        }
+
         /* Success Modal */
         .modal-overlay {
             display: none;
@@ -914,13 +976,13 @@
 
         <section id="services">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <h2>Financial services designed around your life goals</h2>
                     <p>Clear, practical, and personalized advice for long-term financial confidence.</p>
                 </div>
 
                 <div class="services-grid">
-                    <article class="service-card">
+                    <article class="service-card reveal">
                         <div class="icon">📈</div>
                         <h3>Mutual Funds</h3>
                         <p>Plan investments based on your goals, risk profile, time horizon, and liquidity needs.</p>
@@ -932,7 +994,7 @@
                         </ul>
                     </article>
 
-                    <article class="service-card">
+                    <article class="service-card reveal">
                         <div class="icon">🛡️</div>
                         <h3>Life Insurance</h3>
                         <p>Protect your family’s lifestyle and future responsibilities with suitable life coverage.</p>
@@ -944,7 +1006,7 @@
                         </ul>
                     </article>
 
-                    <article class="service-card">
+                    <article class="service-card reveal">
                         <div class="icon">🏥</div>
                         <h3>Health Insurance</h3>
                         <p>Prepare for medical uncertainty with health insurance plans tailored to your family.</p>
@@ -961,11 +1023,11 @@
 
         <section class="about" id="about">
             <div class="container about-grid">
-                <div class="about-photo">
+                <div class="about-photo reveal">
                     <img src="mahesh.webp" alt="Mahesh Y Desai, Financial Advisor — TezNivesh Wealth Solutions" width="400" height="450" loading="lazy" decoding="async" />
                 </div>
 
-                <div class="about-content">
+                <div class="about-content reveal">
                     <div class="eyebrow">About The Advisor</div>
                     <h2>Meet Mahesh Y Desai</h2>
                     <p>
@@ -980,10 +1042,10 @@
                     </p>
 
                     <div class="feature-list">
-                        <div class="feature">Personalized Planning</div>
-                        <div class="feature">Transparent Guidance</div>
-                        <div class="feature">Risk-Aware Advice</div>
-                        <div class="feature">Long-Term Support</div>
+                        <div class="feature reveal">Personalized Planning</div>
+                        <div class="feature reveal">Transparent Guidance</div>
+                        <div class="feature reveal">Risk-Aware Advice</div>
+                        <div class="feature reveal">Long-Term Support</div>
                     </div>
                 </div>
             </div>
@@ -991,29 +1053,29 @@
 
         <section id="process">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <h2>A simple advisory process</h2>
                     <p>From first consultation to ongoing review, every step is structured for clarity and confidence.
                     </p>
                 </div>
 
                 <div class="process-grid">
-                    <div class="step">
+                    <div class="step reveal">
                         <div class="step-number">1</div>
                         <h3>Understand</h3>
                         <p>Discuss your income, family needs, goals, risk comfort, and current policies.</p>
                     </div>
-                    <div class="step">
+                    <div class="step reveal">
                         <div class="step-number">2</div>
                         <h3>Plan</h3>
                         <p>Create a suitable mix of investment, life protection, and health coverage options.</p>
                     </div>
-                    <div class="step">
+                    <div class="step reveal">
                         <div class="step-number">3</div>
                         <h3>Implement</h3>
                         <p>Assist with product selection, documentation, and smooth onboarding.</p>
                     </div>
-                    <div class="step">
+                    <div class="step reveal">
                         <div class="step-number">4</div>
                         <h3>Review</h3>
                         <p>Review your portfolio and protection needs as your life and goals evolve.</p>
@@ -1023,7 +1085,7 @@
         </section>
 
         <section class="cta">
-            <div class="container cta-box">
+            <div class="container cta-box reveal">
                 <div>
                     <h2>Start your financial journey with confidence.</h2>
                     <p>Book a free consultation with Mahesh Y Desai and get clear guidance on Mutual Funds, Life
@@ -1035,13 +1097,13 @@
 
         <section id="contact">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head reveal">
                     <h2>Book a free consultation</h2>
                     <p>Share your details and get a call back for personalized financial guidance.</p>
                 </div>
 
                 <div class="contact-grid">
-                    <div class="contact-card">
+                    <div class="contact-card reveal">
                         <h3>Contact Details</h3>
                         <div class="contact-item">
                             <strong>Advisor</strong>
@@ -1069,7 +1131,7 @@
                         </p>
                     </div>
 
-                    <div class="form-card">
+                    <div class="form-card reveal">
                         <h3>Request Callback</h3>
                         <form id="leadForm">
                             <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
@@ -1143,6 +1205,25 @@
                         btn.textContent = 'Submit Request';
                         btn.disabled = false;
                     });
+            });
+
+            // Navbar shadow on scroll
+            var header = document.querySelector('header');
+            window.addEventListener('scroll', function () {
+                header.classList.toggle('scrolled', window.scrollY > 60);
+            }, { passive: true });
+
+            // Scroll reveal
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.reveal').forEach(function (el) {
+                observer.observe(el);
             });
 
             var modal = document.getElementById('successModal');
