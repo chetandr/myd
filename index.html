@@ -49,6 +49,8 @@
     <!-- Preload logo and hero image for faster LCP -->
     <link rel="preload" as="image" href="teznivesh.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="mahesh.webp" fetchpriority="high" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('KE-uy7UIydi7eBJKC');</script>
 
     <style>
         :root {
@@ -1005,7 +1007,7 @@
 
                     <div class="form-card">
                         <h3>Request Callback</h3>
-                        <form onsubmit="submitForm(event)">
+                        <form id="leadForm">
                             <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
                             <input type="tel" name="phone" placeholder="Mobile Number" required autocomplete="tel" />
                             <input type="email" name="email" placeholder="Email Address" autocomplete="email" />
@@ -1042,10 +1044,32 @@
                 btn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
             });
 
-            document.querySelector('form').addEventListener('submit', function (e) {
+            document.getElementById('leadForm').addEventListener('submit', function (e) {
                 e.preventDefault();
-                alert('Thank you. Your consultation request has been received.');
-                e.target.reset();
+                var form = e.target;
+                var btn = form.querySelector('button[type="submit"]');
+                btn.textContent = 'Sending…';
+                btn.disabled = true;
+
+                var params = {
+                    name: form.name.value,
+                    phone: form.phone.value,
+                    email: form.email.value,
+                    service: form.service.value,
+                    message: form.message.value
+                };
+
+                emailjs.send('service_1vv0lw6', 'template_3317c4b', params)
+                    .then(function () {
+                        alert('Thank you! Your request has been received. We will contact you shortly.');
+                        form.reset();
+                    }, function () {
+                        alert('Sorry, something went wrong. Please call us directly.');
+                    })
+                    .finally(function () {
+                        btn.textContent = 'Submit Request';
+                        btn.disabled = false;
+                    });
             });
         })();
     </script>
