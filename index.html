@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>TezNivesh Wealth Solutions | Mahesh Y Desai</title>
     <meta name="description"
         content="TezNivesh Wealth Solutions — Mahesh Y Desai offers Mutual Funds, Life Insurance, and Health Insurance advisory in Belagavi (Belgaum), Karnataka. Book a free consultation today." />
@@ -765,8 +765,8 @@
         /* WhatsApp Float */
         .wa-float {
             position: fixed;
-            bottom: 28px;
-            right: 28px;
+            bottom: max(20px, calc(env(safe-area-inset-bottom) + 16px));
+            right: max(20px, calc(env(safe-area-inset-right) + 16px));
             z-index: 999;
             display: flex;
             align-items: center;
